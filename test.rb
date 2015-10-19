@@ -8,7 +8,10 @@ require_relative 'app/models/todo'
 
 # completed = Todo.all.find(completion_status: "0")
 
-completed_rows = Todo.all.select{|x| x.completion_status == "1"}
-completed_rows.each do |x|
-	p "#{x.id}" + " " + x.description
+Todo.all.each_with_index do |x,y|
+	# p "#{y+1}"  + ". " + "#{x.description}"
+	if y-1 == 0
+		p x.description
+	end
 end
+
